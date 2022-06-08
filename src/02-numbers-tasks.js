@@ -51,7 +51,7 @@ function getCircleCircumference(radius) {
  *  10, 0  => 5
  *  -3, 3  => 0
  */
-function getAverage(value1, value2 ) {
+function getAverage(value1, value2) {
   return (value1 + value2) / 2;
 }
 
@@ -70,7 +70,7 @@ function getAverage(value1, value2 ) {
  *   (0,0) (1,0)    => 1
  *   (-5,0) (10,-10) => 18.027756377319946
  */
-function getDistanceBetweenPoints(/* x1, y1, x2, y2 */) {
+function getDistanceBetweenPoints(x1, y1, x2, y2) {
   return Math.sqrt((x2 - x1) ** 2 + (y2 - y1));
 }
 
@@ -87,8 +87,9 @@ function getDistanceBetweenPoints(/* x1, y1, x2, y2 */) {
  *   5*x = 0         => 0
  */
 function getLinearEquationRoot(a, b) {
-    return (-1) * b / a;
-  }
+  let minusB = b * (-1);
+  return minusB / a;
+}
 
 
 /**
@@ -202,12 +203,12 @@ function roundToPowerOfTen(num, pow) {
  *   17 => true
  */
 function isPrime(n) {
-  if (n == 2 || n == 3) return true;
-  if (n <= 1 || n % 2 == 0 || n % 3 == 0) return false;
-  for (let i = 5; i * i <= num ; i+=6) {
-    if (n % i == 0 || n % (i + 2) == 0) return false;
+  if (n === 2 || n === 3) return true;
+  if (n <= 1 || n % 2 === 0 || n % 3 === 0) return false;
+  for (let i = 5; i * i <= n; i += 6) {
+    if (n % i === 0 || n % (i + 2) === 0) return false;
   }
-	return true;
+  return true;
 }
 
 /**
@@ -226,8 +227,8 @@ function isPrime(n) {
  *   toNumber(new Number(42), 0) => 42
  */
 function toNumber(value, def) {
-  let number = Number(value);
-  if (number === NaN) return def;
+  const number = Number(value);
+  if (Number.isNaN(number)) return def;
   return number;
 }
 
