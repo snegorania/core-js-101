@@ -107,7 +107,8 @@ function getArrayOfStrings(arr) {
  *    [ false, 0, NaN, '', undefined ]   => [ ]
  */
 function removeFalsyValues(arr) {
-  return arr.filter((item) => item !== '0' && (Number(item) === 0 || !(Number.isNaN(Number(item)))));
+  const arr1 = arr.filter((item) => !(typeof item === 'string' && item.length === 0));
+  return arr1.filter((item) => !(Number(item) === 0 || Number.isNaN(Number(item))));
 }
 
 /**
@@ -261,7 +262,7 @@ function getMovingSum(arr) {
  * [ "a" ] => []
  */
 function getSecondItems(arr) {
-  return arr.filter((item, index) => typeof index % 2 === 1);
+  return arr.filter((item, index) => index % 2 === 1);
 }
 
 

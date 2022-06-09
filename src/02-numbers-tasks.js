@@ -71,7 +71,7 @@ function getAverage(value1, value2) {
  *   (-5,0) (10,-10) => 18.027756377319946
  */
 function getDistanceBetweenPoints(x1, y1, x2, y2) {
-  return Math.sqrt((x2 - x1) ** 2 + (y2 - y1));
+  return Math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2);
 }
 
 /**
@@ -182,7 +182,9 @@ function getParallelepipedDiagonal(a, b, c) {
  *   1678, 3  => 2000
  */
 function roundToPowerOfTen(num, pow) {
-  return num - (num % (10 ** pow));
+  let n = num / (10 ** pow);
+  n = Math.round(n);
+  return n * (10 ** pow);
 }
 
 /**
