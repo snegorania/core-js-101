@@ -21,9 +21,10 @@
  *    console.log(r.getArea());   // => 200
  */
 function Rectangle(width, height) {
-  let rectangle = {
-    width: width,
-    height: height
+  const rectangle = {
+    width,
+    height,
+    getArea: () => width * height,
   };
   return rectangle;
 }
@@ -55,7 +56,7 @@ function getJSON(obj) {
  *    const r = fromJSON(Circle.prototype, '{"radius":10}');
  *
  */
-function fromJSON(proto, json) {
+function fromJSON(/* proto, json */) {
   throw new Error('Not implemented');
 }
 

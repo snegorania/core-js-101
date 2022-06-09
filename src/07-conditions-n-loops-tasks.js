@@ -49,7 +49,7 @@ function getFizzBuzz(num) {
 function getFactorial(n) {
   if (n < 0) return 0;
   if (n === 0) return 1;
-  return n * getFactorial(n-1);
+  return n * getFactorial(n - 1);
 }
 
 
@@ -67,7 +67,7 @@ function getFactorial(n) {
  */
 function getSumBetweenNumbers(n1, n2) {
   let sum = 0;
-  for(let i = n1; i <= n2; i++) sum += i;
+  for (let i = n1; i <= n2; i += 1) sum += i;
   return sum;
 }
 
@@ -161,7 +161,9 @@ function doRectanglesOverlap(rect1, rect2) {
  *
  */
 function isInsideCircle(circle, point) {
-  if((point.x - circle.center.x) ** 2 + (point.y - circle.center.y) ** 2 >= circle.radius ** 2) return true;
+  if ((point.x - circle.center.x) ** 2 + (point.y - circle.center.y) ** 2 >= circle.radius ** 2) {
+    return true;
+  }
   return false;
 }
 

@@ -29,18 +29,19 @@
  *                                                    //  Ask her again.';
  */
 function willYouMarryMe(isPositiveAnswer) {
-  return new Promise(function(resolve, reject){
+  const promise = new Promise((resolve, reject) => {
     let answer;
     if (typeof isPositiveAnswer !== 'boolean') {
-      answer = () => reject(new Error('Wrong parameter is passed! Ask her again.'))
-    }
-    else if (isPositiveAnswer) {
-      answer = () => resolve('Hooray!!! She said "Yes"!');
-    }
-    else {
-      answer = () => resolve('Oh no, she said "No".');
+      reject(new Error('Wrong parameter is passed! Ask her again.'));
+    } else if (isPositiveAnswer) {
+      answer = 'Hooray!!! She said "Yes"!';
+      resolve(answer);
+    } else {
+      answer = 'Oh no, she said "No".';
+      resolve(answer);
     }
   });
+  return promise;
 }
 
 

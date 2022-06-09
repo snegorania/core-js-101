@@ -36,9 +36,9 @@ function findElement(arr, value) {
  *    5 => [ 1, 3, 5, 7, 9 ]
  */
 function generateOdds(len) {
-  let arr = [];
+  const arr = [];
   let num = 1;
-  for(let i = 0; i < len; i++){
+  for (let i = 0; i < len; i += 1) {
     arr.push(num);
     num += 2;
   }
@@ -75,7 +75,7 @@ function doubleArray(arr) {
  *    [] => []
  */
 function getArrayOfPositives(arr) {
-  return arr.filter(item => item > 0);
+  return arr.filter((item) => item > 0);
 }
 
 /**
@@ -90,7 +90,7 @@ function getArrayOfPositives(arr) {
  *    [ 'cat, 'dog', 'raccoon' ] => [ 'cat', 'dog', 'raccoon' ]
  */
 function getArrayOfStrings(arr) {
-  return arr.filter(item => typeof item === 'string');
+  return arr.filter((item) => typeof item === 'string');
 }
 
 /**
@@ -107,7 +107,7 @@ function getArrayOfStrings(arr) {
  *    [ false, 0, NaN, '', undefined ]   => [ ]
  */
 function removeFalsyValues(arr) {
-  return arr.filter(item => item !== '0' && (Number(item) === 0 || !(Number.isNaN(Number(item)))));
+  return arr.filter((item) => item !== '0' && (Number(item) === 0 || !(Number.isNaN(Number(item)))));
 }
 
 /**
@@ -122,7 +122,7 @@ function removeFalsyValues(arr) {
  *    [ 'a', 'b', 'c', 'd', 'e', 'f', 'g' ]  => [ 'A', 'B', 'C', 'D', 'E', 'F', 'G' ]
  */
 function getUpperCaseStrings(arr) {
-  return arr.map(item => item.toUpperCase())
+  return arr.map((item) => item.toUpperCase());
 }
 
 
@@ -137,7 +137,7 @@ function getUpperCaseStrings(arr) {
  *    [ 'angular', 'react', 'ember' ] => [ 7, 5, 5 ]
  */
 function getStringsLength(arr) {
-  return arr.map(item => item.length);
+  return arr.map((item) => item.length);
 }
 
 /**
@@ -221,7 +221,7 @@ function toCsvText(arr) {
  *   [ 10, 100, -1 ]      => [ 100, 10000, 1 ]
  */
 function toArrayOfSquares(arr) {
-  return arr.map(item => item ** 2);
+  return arr.map((item) => item ** 2);
 }
 
 
@@ -241,11 +241,12 @@ function toArrayOfSquares(arr) {
  */
 function getMovingSum(arr) {
   let sum = 0;
-  for (let i = 0; i < arr.length; i++){
-    arr[i] += sum;
-    sum += arr[i];
+  const arr1 = arr;
+  for (let i = 0; i < arr1.length; i += 1) {
+    arr1[i] += sum;
+    sum = arr1[i];
   }
-  return arr;
+  return arr1;
 }
 
 /**
@@ -316,8 +317,8 @@ function get3TopItems(/* arr */) {
  */
 function getPositivesCount(arr) {
   let count = 0;
-  for(let i = 0; i < arr.length; i++){
-    if(typeof arr[i] === 'number' && arr[i] > 0) count++;
+  for (let i = 0; i < arr.length; i += 1) {
+    if (typeof arr[i] === 'number' && arr[i] > 0) count += 1;
   }
   return count;
 }
