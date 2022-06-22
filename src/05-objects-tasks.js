@@ -57,8 +57,7 @@ function getJSON(obj) {
  *
  */
 function fromJSON(proto, json) {
-  const jsonObj = JSON.parse(json, (key, value) => Number(value));
-  jsonObj.prototype = proto;
+  const jsonObj = JSON.parse(json, Object.setPrototypeOf(proto));
   return jsonObj;
 }
 

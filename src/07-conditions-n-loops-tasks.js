@@ -128,8 +128,12 @@ function isTriangle(a, b, c) {
  *
  */
 function doRectanglesOverlap(rect1, rect2) {
-  if (rect2.top < rect1.top || rect2.top > rect1.top + rect1.height) return false;
-  if (rect2.left < rect1.left || rect2.left > rect1.left + rect1.width) return false;
+  const a = (rect2.top < rect1.top || rect2.top > rect1.top + rect1.height);
+  const b = (rect1.top < rect2.top || rect1.top > rect2.top + rect2.height);
+  const c = (rect2.left < rect1.left || rect2.left > rect1.left + rect1.width);
+  const d = (rect1.left < rect2.left || rect1.left > rect2.left + rect2.width);
+  if (a && b) return false;
+  if (c && d) return false;
   return true;
 }
 
@@ -181,10 +185,12 @@ function isInsideCircle(circle, point) {
  *   'entente' => null
  */
 function findFirstSingleChar(str) {
+  let str1 = '';
   for (let i = 0; i < str.length; i += 1) {
-    if (!str.includes(str[i], i + 1)) {
+    if ((!str.includes(str[i], i + 1)) && (!str1.includes(str[i]))) {
       return str[i];
     }
+    str1 += str[i];
   }
   return null;
 }
@@ -213,16 +219,25 @@ function findFirstSingleChar(str) {
  *
  */
 function getIntervalString(a, b, isStartIncluded, isEndIncluded) {
+  let c;
+  let d;
+  if (a <= b) {
+    c = a;
+    d = b;
+  } else {
+    c = b;
+    d = a;
+  }
   if (isStartIncluded && isEndIncluded) {
-    return `[${a}, ${b}]`;
+    return `[${c}, ${d}]`;
   }
   if (!isStartIncluded && !isEndIncluded) {
-    return `(${a}, ${b})`;
+    return `(${c}, ${d})`;
   }
   if (!isStartIncluded && isEndIncluded) {
-    return `(${a}, ${b}]`;
+    return `(${c}, ${d}]`;
   }
-  return `[${a}, ${b})`;
+  return `[${c}, ${d})`;
 }
 
 
